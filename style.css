@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+    background: linear-gradient(161deg, rgba(255,248,137,1) 0%, rgba(0,64,194,41.994835) 140%);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  
