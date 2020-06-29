@@ -7,4 +7,57 @@
     background-position: top center;
   }
 
+ .input-class {
+   display: block;
+   margin: auto;
+   margin-bottom: 50px;
+   margin-top: 3%;
+   padding: 10px;
+   width: 1040px;
+   height: 300px;
+   border: 1px solid black;
+   border-radius: 5px;
+   font-family: 'Rubik', Helvetica, sans-serif;
+   font-size: 24px;
+   overflow: auto;
+   word-break: break-all;
+   color: black;
+   caret-color: green;
+   resize: none;
+   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.329);
+ }
+
+ .keyboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  padding: 5px;
+  width: 1040px;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Rubik', Helvetica, sans-serif;
+  font-weight: 700;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.829);
+}
+
+.key {
+  display: flex;
+  margin: 7px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #212400;
+  border-radius: 15%;
+  transition: 0.6s;
+  font-size: 18px;
+  color: black;
+  box-shadow: 2px 2px 4px black;
+}
   
