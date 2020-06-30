@@ -61,3 +61,72 @@
   box-shadow: 2px 2px 4px black;
 }
   
+.key-down {
+  background: linear-gradient( rgba(255, 255, 255, 0.65), rgba(245, 243, 166, 0.1) );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+  transition: 0.6s;
+  font-size: 16px;
+  box-shadow: 0 0 0 black;
+}
+
+#Backspace {
+  width: 12%;
+  border-radius: 8%;
+  font-size: 16px;
+}
+
+#Tab {
+  width: 8%;
+  border-radius: 8%;
+  font-size: 18px;
+}
+
+#Delete {
+  width: 61px;
+  border-radius: 8%;
+  font-size: 16px;
+}
+
+#CapsLock {
+  width: 10%;
+  border-radius: 8%;
+  font-size: 16px;
+}
+
+#Enter {
+  width: 14%;
+  border-radius: 5%;
+  font-size: 18px;
+}
+
+#ShiftLeft,
+#ShiftRight {
+  width: 12%;
+  border-radius: 5%;
+  font-size: 18px;
+}
+
+#Space {
+  width: 30%;
+  border-radius: 4%;
+}
+
+#ControlLeft,
+#ControlRight {
+ width: 60px;
+ font-size: 18px;
+}
+
+#AltLeft,
+#AltRight {
+ width: 60px;
+ font-size: 18px;
+}
+
+#Clear {
+  width: 62px;
+  font-size: 18px;
+}
