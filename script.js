@@ -1,5 +1,7 @@
 import { VALUE_OF_KEYS } from './values-of-keys.js';
 
+let CAPS_LOCK = false;
+
 function createKeyboardSpace() {
     document.body.innerHTML = ''
     document.body.insertAdjacentHTML('afterbegin', '<div class="keyboard-container" id="keyboard-id"></div>')
@@ -14,6 +16,18 @@ function createKeyboardSpace() {
       getRusKeys()
     }
     return true
+  }
+
+  function markActiveKeys() {
+    document.addEventListener('keydown', (event) => {
+      document.getElementById(`${event.code}`).classList.add('key-down');
+    });
+  
+    document.addEventListener('keyup', (event) => {
+      document.getElementById(`${event.code}`).classList.remove('key-down');
+    });
+  
+    return true;
   }
 
 function capsLockActivation() {
@@ -89,5 +103,60 @@ function getEngKeys() {
   return true;
 }
 
-  createKeyboardSpace();
-  changeLanguage()
+function getRusKeys() {
+  const arrayOfKeys = Object.keys(VALUE_OF_KEYS);
+  const arrayOfValues = Object.values(VALUE_OF_KEYS);
+  const rusKeys = arrayOfValues.map((el) => el.rus);
+
+  document.getElementById('keyboard-id').innerHTML = '';
+
+  for (let i = 0, j = 0; i < rusKeys.length; i += 1, j += 1) {
+    document.getElementById('keyboard-id').insertAdjacentHTML('beforeend', `<div class="key" id="${arrayOfKeys[j]}">${rusKeys[i]}</div>`);
+  }
+
+  return true;
+}
+
+function pressShift() {
+  document.addEventListener('keydown', (event) => {
+    if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+      if (localStorage.getItem('language') === 'RU' && CAPS_LOCK === false) {
+        getRusHighKeys();
+      }
+      if (localStorage.getItem('language') === 'RU' && CAPS_LOCK === true) {
+        getRusKeys();
+      }
+      if (localStorage.getItem('language') === 'EN' && CAPS_LOCK === false) {
+        getEngHighKeys();
+      }
+      if (localStorage.getItem('language') === 'EN' && CAPS_LOCK === true) {
+        getEngKeys();
+      }
+    }
+  });
+
+  document.addEventListener('keyup', (event) => {
+    if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && CAPS_LOCK === false) {
+      if (document.getElementById('KeyQ').innerText === '?') {
+        getRusKeys();
+      } else {
+        getEngKeys();
+      }
+    }
+
+    if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && CAPS_LOCK === true) {
+      if (document.getElementById('KeyQ').innerText === 'q') {
+        getEngHighKeys();
+      }
+      if (document.getElementById('KeyQ').innerText === '?') {
+        getRusHighKeys();
+      }
+    }
+  });
+  return true;
+}
+
+createKeyboardSpace();
+changeLanguage();
+pressShift();
+markActiveKeys();
