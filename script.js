@@ -103,6 +103,35 @@ function getEngKeys() {
   return true;
 }
 
+function getEngHighKeys() {
+  const arrayOfKeys = Object.keys(VALUE_OF_KEYS);
+  const arrayOfValues = Object.values(VALUE_OF_KEYS);
+  const engHKeys = arrayOfValues.map((el) => el.engH);
+
+  document.getElementById('keyboard-id').innerHTML = '';
+
+  for (let i = 0, j = 0; i < engHKeys.length; i += 1, j += 1) {
+    document.getElementById('keyboard-id').insertAdjacentHTML('beforeend', `<div class="key" id="${arrayOfKeys[j]}">${engHKeys[i]}</div>`);
+  }
+  return true;
+}
+
+function getEngCapsKeys() {
+  const arrayOfKeys = Object.keys(VALUE_OF_KEYS);
+  const arrayOfValues = Object.values(VALUE_OF_KEYS);
+  const numberKeys = arrayOfValues.map((el) => el.eng).slice(1, 11);
+  const engCapsKeys = arrayOfValues.map((el) => el.engH);
+  engCapsKeys.splice(1, 10, ...numberKeys);
+
+  document.getElementById('keyboard-id').innerHTML = '';
+
+  for (let i = 0, j = 0; i < engCapsKeys.length; i += 1, j += 1) {
+    document.getElementById('keyboard-id').insertAdjacentHTML('beforeend', `<div class="key" id="${arrayOfKeys[j]}">${engCapsKeys[i]}</div>`);
+  }
+
+  return true;
+}
+
 function getRusKeys() {
   const arrayOfKeys = Object.keys(VALUE_OF_KEYS);
   const arrayOfValues = Object.values(VALUE_OF_KEYS);
@@ -112,6 +141,36 @@ function getRusKeys() {
 
   for (let i = 0, j = 0; i < rusKeys.length; i += 1, j += 1) {
     document.getElementById('keyboard-id').insertAdjacentHTML('beforeend', `<div class="key" id="${arrayOfKeys[j]}">${rusKeys[i]}</div>`);
+  }
+
+  return true;
+}
+
+function getRusHighKeys() {
+  const arrayOfKeys = Object.keys(VALUE_OF_KEYS);
+  const arrayOfValues = Object.values(VALUE_OF_KEYS);
+  const rusHKeys = arrayOfValues.map((el) => el.rusH);
+
+  document.getElementById('keyboard-id').innerHTML = '';
+
+  for (let i = 0, j = 0; i < rusHKeys.length; i += 1, j += 1) {
+    document.getElementById('keyboard-id').insertAdjacentHTML('beforeend', `<div class="key" id="${arrayOfKeys[j]}">${rusHKeys[i]}</div>`);
+  }
+
+  return true;
+}
+
+function getRusCapsKeys() {
+  const arrayOfKeys = Object.keys(VALUE_OF_KEYS);
+  const arrayOfValues = Object.values(VALUE_OF_KEYS);
+  const numberKeys = arrayOfValues.map((el) => el.rus).slice(1, 11);
+  const rusCapsKeys = arrayOfValues.map((el) => el.rusH);
+  rusCapsKeys.splice(1, 10, ...numberKeys);
+
+  document.getElementById('keyboard-id').innerHTML = '';
+
+  for (let i = 0, j = 0; i < rusCapsKeys.length; i += 1, j += 1) {
+    document.getElementById('keyboard-id').insertAdjacentHTML('beforeend', `<div class="key" id="${arrayOfKeys[j]}">${rusCapsKeys[i]}</div>`);
   }
 
   return true;
